@@ -5,10 +5,7 @@ const Model = objection.Model;
 const config = require('./knexfile');
 const Knex = require('knex');
 const knex = Knex(config[process.env.NODE_ENV || 'development']);
-const KnexLogger = require('./knexLogger');
-const logger = new KnexLogger(knex);
 
-logger.log();
 Model.knex(knex);
 
 class BaseModel extends Model {
